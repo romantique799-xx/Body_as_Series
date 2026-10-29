@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap');
+:root { --ink:#111; --paper:#fff; --voice:#ff4638; --hand:#1d4eff; --breath:#79c600; --body:rgb(233,0,255); }
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#fff;color:#111}
+body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Arial,sans-serif}
+button{font-family:inherit}
+.home{position:fixed;inset:0;background:#fff;overflow:hidden}
+.home[hidden],.viewer[hidden]{display:none!important}
+.landing{position:absolute;inset:0}
+/* Four type-only titles: no bubbles, no borders, all AS on line two. */
+.project-field{position:absolute;top:9vh;left:50%;transform:translateX(-50%);width:min(1480px,96vw);display:grid;grid-template-columns:1.02fr 1.25fr .95fr .95fr;gap:1.3vw;align-items:start}
+.project-item{position:relative;display:flex;justify-content:center;align-items:flex-start;width:100%;min-width:0;height:clamp(185px,23vw,270px);border:0;background:transparent;padding:0 4px;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;color:var(--voice);transform:translate(var(--drag-x,0px),var(--drag-y,0px)) rotate(var(--tilt,0deg)) scale(var(--hover-scale,1));transition:transform .17s ease-out,filter .17s ease-out;transform-origin:center 43%;z-index:1}
+.project-item:hover,.project-item.hovered{--hover-scale:1.17;z-index:8;filter:saturate(1.08)}
+.project-item.dragging{z-index:9;transition:none;cursor:grabbing;--hover-scale:1.10}
+.project-item.drag-return{transition:transform .28s cubic-bezier(.22,1,.36,1)}
+.project-item:focus-visible,.back-button:focus-visible,.tracking-button:focus-visible{outline:2px dashed #444;outline-offset:4px}
+.project-one{--tilt:-3deg;color:var(--voice)}
+.project-two{--tilt:2deg;color:var(--hand)}
+.project-three{--tilt:-2deg;color:var(--breath)}
+.project-four{--tilt:2.5deg;color:var(--body)}
+.project-name{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;color:currentColor;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Arial,sans-serif;font-weight:700;letter-spacing:-.045em;line-height:1.0;text-transform:lowercase;font-size:clamp(32px,4.15vw,68px);white-space:nowrap;pointer-events:none;padding-top:8px}
+.project-name span{display:block}
+.project-name .middle{font-size:.96em;line-height:.90}
+.project-two .project-name{font-size:clamp(32px,4vw,65px)}
+.project-two .project-name .instrument{font-size:.66em;letter-spacing:-.045em}
+.project-three .project-name{font-size:clamp(32px,4vw,65px)}
+.project-four .project-name{font-size:clamp(32px,4.15vw,68px)}
+.help-text{position:absolute;bottom:10%;left:12px;right:12px;text-align:center;font:10px 'DM Mono',monospace;letter-spacing:.06em;color:#666;pointer-events:none}
+.site-footer{position:absolute;left:28px;right:28px;bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;font:10px 'DM Mono',monospace;color:#333}
+.site-signature{font-weight:500}
+#camera-status{flex:1;text-align:right;color:#777}
+.tracking-button{border:1px solid #222;color:#111;background:#fff;border-radius:999px;padding:11px 15px;font:10px 'DM Mono',monospace;cursor:pointer;white-space:nowrap}
+.tracking-button:hover{background:#111;color:#fff}.circle-indicator{display:inline-block;width:8px;height:8px;border:1px solid currentColor;border-radius:50%;vertical-align:middle;margin-left:6px}.tracking-button.live .circle-indicator{background:#49c958;border-color:#49c958}
+.viewer{position:fixed;inset:0;background:#000;z-index:10}.viewer iframe{width:100%;height:100%;border:none;display:block;background:#090a0c}
+.viewer-name{position:absolute;left:22px;bottom:23px;color:#fff;opacity:.60;pointer-events:none;font:10px 'DM Mono',monospace;letter-spacing:.04em;text-shadow:0 1px 6px #000}
+.back-button{position:absolute;right:20px;bottom:20px;z-index:12;min-width:140px;min-height:75px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;background:white;color:#111;border:2px solid #111;cursor:grab;touch-action:none;user-select:none;transform:translate(var(--drag-x,0px),var(--drag-y,0px)) scale(var(--hover-scale,1));transition:transform .17s}.back-button.hovered,.back-button:hover{--hover-scale:1.19}.back-button.dragging{transition:none;cursor:grabbing;--hover-scale:1.1}.back-small{font:9px 'DM Mono',monospace}.back-word{font:700 27px -apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Arial,sans-serif;letter-spacing:-.04em}
+.hand-cursor{position:fixed;left:0;top:0;width:28px;height:28px;border:2px solid #141414;border-radius:50%;z-index:30;pointer-events:none;opacity:0;transform:translate(-50%,-50%);transition:width .10s,height .10s,opacity .12s;box-shadow:0 0 0 2px #fff9}.hand-cursor.visible{opacity:1}.hand-cursor.pinched{width:16px;height:16px;background:#181818;box-shadow:0 0 0 6px #fff8}.cursor-core{position:absolute;width:5px;height:5px;background:#111;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
+.gesture-message{position:fixed;left:50%;bottom:65px;transform:translateX(-50%);font:11px 'DM Mono',monospace;background:#fff;color:#111;padding:8px 13px;border:1px solid #111;z-index:50;pointer-events:none;opacity:0;transition:opacity .15s}.gesture-message.visible{opacity:1}
+@media(max-width:1000px){.project-field{width:96vw;top:10vh;gap:1vw}.project-item{height:clamp(160px,23vw,235px)}.project-name,.project-two .project-name,.project-three .project-name,.project-four .project-name{font-size:clamp(27px,4vw,50px)}}
+@media(max-width:640px){.project-field{top:11vh;left:50%;width:95vw;grid-template-columns:1fr 1fr;gap:22px 8px}.project-item{height:clamp(145px,36vw,205px)}.project-name,.project-two .project-name,.project-three .project-name,.project-four .project-name{font-size:clamp(32px,7vw,50px)}.project-two .project-name .instrument{font-size:.65em}.help-text{bottom:13%;line-height:1.6;font-size:9px}.site-footer{left:14px;right:14px;bottom:13px;gap:6px;font-size:8px}#camera-status{display:none}.tracking-button{font-size:9px;padding:8px 10px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
