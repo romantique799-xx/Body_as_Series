@@ -1,44 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
-  <title>AS SERIES — Four experiments in embodied typography</title>
-  <link rel="stylesheet" href="./style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <title>04 BODY AS GRID · AS SERIES</title>
+  <style>
+    html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#090a0c;}
+    canvas{display:block;}
+    body{font-family:Arial,sans-serif;}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
 </head>
 <body>
-  <div id="home" class="home" aria-label="AS SERIES project selector">
-    <main class="landing">
-      <div id="project-field" class="project-field">
-        <button class="project-item project-one" data-project="0" type="button" aria-label="Open Body as Matter — voice and gravity">
-          <span class="project-name"><span>BODY</span><span class="middle">AS</span><span>MATTER</span></span>
-        </button>
-        <button class="project-item project-two" data-project="1" type="button" aria-label="Open Hand as Instrument">
-          <span class="project-name"><span>HAND</span><span class="middle">AS</span><span class="instrument">INSTRUMENT</span></span>
-        </button>
-        <button class="project-item project-three" data-project="2" type="button" aria-label="Open Breath as Ink">
-          <span class="project-name"><span>BREATH</span><span class="middle">AS</span><span>INK</span></span>
-        </button>
-        <button class="project-item project-four" data-project="3" type="button" aria-label="Open Body as Grid">
-          <span class="project-name"><span>BODY</span><span class="middle">AS</span><span>GRID</span></span>
-        </button>
-      </div>
-      <p class="help-text">HOVER TO ENLARGE &nbsp;·&nbsp; PINCH, PULL &amp; RELEASE TO OPEN &nbsp;·&nbsp; OR CLICK</p>
-    </main>
-    <footer class="site-footer">
-      <span class="site-signature">AS SERIES / 2026</span>
-      <span id="camera-status" role="status" aria-live="polite">MOUSE READY · CAMERA OPTIONAL</span>
-      <button id="hands-button" class="tracking-button" type="button">ENABLE HAND CURSOR <span class="circle-indicator"></span></button>
-    </footer>
-  </div>
-  <section id="viewer" class="viewer" aria-label="Current project" hidden>
-    <iframe id="project-frame" title="Interactive typography project" allow="camera; microphone; autoplay; fullscreen; serial" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-    <button id="back-button" type="button" class="back-button"><span class="back-small">PULL + RELEASE</span><span class="back-word">↖ BACK</span></button>
-    <span class="viewer-name" id="viewer-name" aria-hidden="true"></span>
-  </section>
-  <div id="hand-cursor" class="hand-cursor" aria-hidden="true"><span class="cursor-core"></span></div>
-  <div id="gesture-message" class="gesture-message" role="status" aria-live="polite"></div>
-  <script type="module" src="./app.js"></script>
+  <script src="./sketch.js"></script>
 </body>
 </html>
